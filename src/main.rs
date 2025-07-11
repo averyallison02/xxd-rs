@@ -13,7 +13,7 @@ const START_ADDR: usize = 0;
 
 fn print_data(data: &String)
 {
-    print!("{:010x}: ", START_ADDR);
+    print!("{:08x}: ", START_ADDR);
 
     for (i, ch) in data.chars().enumerate()
     {
@@ -29,8 +29,7 @@ fn print_data(data: &String)
         if i % BYTES_PER_LINE == BYTES_PER_LINE - 1
         {
             println!();
-            if data.len() % BYTES_PER_LINE == 0
-            && i != data.len() - 1 {print!("{:010x}: ", (current_addr + 1))}
+            if i != data.len() - 1 {print!("{:08x}: ", (current_addr + 1))}
         }
     }
 
